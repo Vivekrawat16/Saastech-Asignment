@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+  <!-- PART 4: ORDER PROCESSING -->
+
+  <!-- Second address for Activity 4 -->
+  <ContactMech contactMechId="MT_ADDR2" contactMechTypeId="POSTAL_ADDRESS"/>
+  <PostalAddress contactMechId="MT_ADDR2" toName="HotWax Media Inc." address1="307 W 200 S" address2="Suite 4003" city="Salt Lake City" postalCode="84101" stateProvinceGeoId="UT" countryGeoId="USA"/>
+  <ContactMech contactMechId="MT_PHONE2" contactMechTypeId="TELECOM_NUMBER"/>
+  <TelecomNumber contactMechId="MT_PHONE2" contactNumber="8884052667"/>
+
+  <!-- Shipping method references -->
+  <ContactMech contactMechId="UPS_GROUND_CM" contactMechTypeId="SHIPPING_METHOD" infoString="UPS_GROUND"/>
+  <ContactMech contactMechId="FEDEX_GROUND_CM" contactMechTypeId="SHIPPING_METHOD" infoString="FEDEX_GROUND"/>
+
+  <!-- Credit card contact mechs -->
+  <ContactMech contactMechId="MT_CC_VISA" contactMechTypeId="CREDIT_CARD"/>
+  <CreditCard contactMechId="MT_CC_VISA" cardType="Visa" cardNumber="4111111111111111" firstNameOnCard="Mark" lastNameOnCard="Tailor" expireDate="12/2025"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_CC_VISA" fromDate="2024-01-01 00:00:00.0"/>
+
+  <ContactMech contactMechId="MT_CC_DISCOVER" contactMechTypeId="CREDIT_CARD"/>
+  <CreditCard contactMechId="MT_CC_DISCOVER" cardType="Discover" cardNumber="6011111111111117" firstNameOnCard="Mark" lastNameOnCard="Tailor" expireDate="12/2025"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_CC_DISCOVER" fromDate="2024-01-01 00:00:00.0"/>
+
+  <ContactMech contactMechId="MT_CC_AMEX" contactMechTypeId="CREDIT_CARD"/>
+  <CreditCard contactMechId="MT_CC_AMEX" cardType="AmericanExpress" cardNumber="378282246310005" firstNameOnCard="Mark" lastNameOnCard="Tailor" expireDate="12/2025"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_CC_AMEX" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- ==================== ORDER HWMDEMO1000 (Created) ==================== -->
+  <OrderHeader orderId="HWMDEMO1000" orderTypeId="SALES_ORDER" statusId="ORDER_CREATED"
+    orderDate="2024-01-15 00:00:00.0" productStoreId="STORE"
+    salesChannelEnumId="WEB_SALES_CHANNEL" currencyUom="USD"
+    grandTotal="100.00" remainingSubTotal="100.00"/>
+  <OrderItem orderId="HWMDEMO1000" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM"
+    productId="MS-1-W7" quantity="1" unitPrice="50.00" unitListPrice="50.00" statusId="ITEM_CREATED"
+    isPromo="N" isModifiedPrice="N"/>
+  <OrderItem orderId="HWMDEMO1000" orderItemSeqId="00002" orderItemTypeId="PRODUCT_ORDER_ITEM"
+    productId="MF-1-R7" quantity="1" unitPrice="50.00" unitListPrice="50.00" statusId="ITEM_CREATED"
+    isPromo="N" isModifiedPrice="N"/>
+  <OrderRole orderId="HWMDEMO1000" partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1000" partyId="MARK_TAILOR" roleTypeId="BILL_TO_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1000" partyId="MARK_TAILOR" roleTypeId="END_USER_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1000" partyId="COMPANY" roleTypeId="BILL_FROM_VENDOR"/>
+  <OrderRole orderId="HWMDEMO1000" partyId="COMPANY" roleTypeId="SHIP_FROM_VENDOR"/>
+  <OrderContactMech orderId="HWMDEMO1000" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="MT_ADDR"/>
+  <OrderContactMech orderId="HWMDEMO1000" contactMechPurposeTypeId="BILLING_LOCATION" contactMechId="MT_ADDR"/>
+  <OrderContactMech orderId="HWMDEMO1000" contactMechPurposeTypeId="PHONE_SHIPPING" contactMechId="MT_PHONE"/>
+  <OrderContactMech orderId="HWMDEMO1000" contactMechPurposeTypeId="ORDER_EMAIL" contactMechId="MT_EMAIL"/>
+  <OrderPaymentPreference orderId="HWMDEMO1000" orderPaymentPreferenceId="OPP1000" paymentMethodTypeId="CREDIT_CARD"
+    paymentMethodId="MT_CC_VISA" statusId="PAYMENT_NOT_AUTH" maxAmount="100.00" createdDate="2024-01-15 00:00:00.0"/>
+  <OrderItemShipGroup orderId="HWMDEMO1000" shipGroupSeqId="00001" shipmentMethodTypeId="GROUND"
+    carrierPartyId="UPS" carrierRoleTypeId="CARRIER" contactMechId="MT_ADDR"/>
+  <OrderItemShipGroupAssoc orderId="HWMDEMO1000" orderItemSeqId="00001" shipGroupSeqId="00001" quantity="1"/>
+  <OrderItemShipGroupAssoc orderId="HWMDEMO1000" orderItemSeqId="00002" shipGroupSeqId="00001" quantity="1"/>
+
+  <!-- ==================== ORDER HWMDEMO1001 (Approved) ==================== -->
+  <OrderHeader orderId="HWMDEMO1001" orderTypeId="SALES_ORDER" statusId="ORDER_APPROVED"
+    orderDate="2024-01-16 00:00:00.0" productStoreId="STORE"
+    salesChannelEnumId="WEB_SALES_CHANNEL" currencyUom="USD"
+    grandTotal="100.00" remainingSubTotal="100.00"/>
+  <OrderItem orderId="HWMDEMO1001" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM"
+    productId="MS-1-W7" quantity="1" unitPrice="50.00" unitListPrice="50.00" statusId="ITEM_APPROVED"
+    isPromo="N" isModifiedPrice="N"/>
+  <OrderItem orderId="HWMDEMO1001" orderItemSeqId="00002" orderItemTypeId="PRODUCT_ORDER_ITEM"
+    productId="MF-2-W7" quantity="1" unitPrice="50.00" unitListPrice="50.00" statusId="ITEM_APPROVED"
+    isPromo="N" isModifiedPrice="N"/>
+  <OrderRole orderId="HWMDEMO1001" partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1001" partyId="MARK_TAILOR" roleTypeId="BILL_TO_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1001" partyId="MARK_TAILOR" roleTypeId="END_USER_CUSTOMER"/>
+  <OrderRole orderId="HWMDEMO1001" partyId="COMPANY" roleTypeId="BILL_FROM_VENDOR"/>
+  <OrderRole orderId="HWMDEMO1001" partyId="COMPANY" roleTypeId="SHIP_FROM_VENDOR"/>
+  <OrderContactMech orderId="HWMDEMO1001" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="MT_ADDR"/>
+  <OrderContactMech orderId="HWMDEMO1001" contactMechPurposeTypeId="BILLING_LOCATION" contactMechId="MT_ADDR"/>
+  <OrderContactMech orderId="HWMDEMO1001" contactMechPurposeTypeId="PHONE_SHIPPING" contactMechId="MT_PHONE"/>
+  <OrderContactMech orderId="HWMDEMO1001" contactMechPurposeTypeId="ORDER_EMAIL" contactMechId="MT_EMAIL"/>
+  <OrderPaymentPreference orderId="HWMDEMO1001" orderPaymentPreferenceId="OPP1001" paymentMethodTypeId="CREDIT_CARD"
+    paymentMethodId="MT_CC_DISCOVER" statusId="PAYMENT_NOT_AUTH" maxAmount="100.00" createdDate="2024-01-16 00:00:00.0"/>
+  <OrderItemShipGroup orderId="HWMDEMO1001" shipGroupSeqId="00001" shipmentMethodTypeId="GROUND"
+    carrierPartyId="UPS" carrierRoleTypeId="CARRIER" contactMechId="MT_ADDR"/>
+  <OrderItemShipGroupAssoc orderId="HWMDEMO1001" orderItemSeqId="00001" shipGroupSeqId="00001" quantity="1"/>
+  <OrderItemShipGroupAssoc orderId="HWMDEMO1001" orderItemSeqId="00002" shipGroupSeqId="00001" quantity="1"/>
+
+  <!-- Activity 3: HWMDEMO1001 Cancel update (status changed to CANCELLED) -->
+  <!-- Note: In XML load we set final state. Here we show the cancelled version -->
+  <!-- OrderStatus history entries -->
+  <OrderStatus orderStatusId="OS1001APPROVED" orderId="HWMDEMO1001" statusId="ORDER_APPROVED" statusDatetime="2024-01-16 01:00:00.0"/>
+  <OrderStatus orderStatusId="OS1001CANCEL" orderId="HWMDEMO1001" statusId="ORDER_CANCELLED" statusDatetime="2024-01-17 00:00:00.0"
+    changeByUserLoginId="admin"/>
+
+  <!-- Activity 4: HWMDEMO1001 Completed with new address, AMEX, UPS Ground, Shipment -->
+  <!-- Updated addresses for completion -->
+  <OrderStatus orderStatusId="OS1001COMPLETE" orderId="HWMDEMO1001" statusId="ORDER_COMPLETED" statusDatetime="2024-01-18 00:00:00.0"
+    changeByUserLoginId="admin"/>
+
+  <!-- Shipment for HWMDEMO1001 -->
+  <Shipment shipmentId="HwmDemo1000" shipmentTypeId="SALES_SHIPMENT" statusId="SHIPMENT_PACKED"
+    primaryOrderId="HWMDEMO1001" primaryShipGroupSeqId="00001"
+    originFacilityId="WebStoreWarehouse"
+    destinationContactMechId="MT_ADDR2"
+    partyIdTo="MARK_TAILOR" partyIdFrom="COMPANY"
+    estimatedShipDate="2024-01-18 00:00:00.0"
+    estimatedArrivalDate="2024-01-20 00:00:00.0"
+    createdDate="2024-01-18 00:00:00.0"/>
+  <ShipmentItem shipmentId="HwmDemo1000" shipmentItemSeqId="00001" productId="MS-1-W7" quantity="1"/>
+  <ShipmentItem shipmentId="HwmDemo1000" shipmentItemSeqId="00002" productId="MF-2-W7" quantity="1"/>
+  <OrderShipment orderId="HWMDEMO1001" orderItemSeqId="00001" shipGroupSeqId="00001"
+    shipmentId="HwmDemo1000" shipmentItemSeqId="00001" quantity="1"/>
+  <OrderShipment orderId="HWMDEMO1001" orderItemSeqId="00002" shipGroupSeqId="00001"
+    shipmentId="HwmDemo1000" shipmentItemSeqId="00002" quantity="1"/>
+
+  <!-- Updated payment for Activity 4: AMEX -->
+  <OrderPaymentPreference orderId="HWMDEMO1001" orderPaymentPreferenceId="OPP1001B" paymentMethodTypeId="CREDIT_CARD"
+    paymentMethodId="MT_CC_AMEX" statusId="PAYMENT_SETTLED" maxAmount="100.00" createdDate="2024-01-18 00:00:00.0"/>
+
+</entity-engine-xml>

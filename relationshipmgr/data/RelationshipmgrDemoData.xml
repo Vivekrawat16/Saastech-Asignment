@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <!-- College -->
+    <RmParty partyId="IITD" partyTypeId="COLLEGE"/>
+    <RmPartyGroup partyId="IITD" groupName="IIT Delhi"/>
+    <RmContactMech contactMechId="CM1" contactMechTypeId="EMAIL_ADDRESS" infoString="admin@iitd.ac.in"/>
+    <RmPartyContactMech partyId="IITD" contactMechId="CM1" fromDate="2024-01-01 00:00:00.000"/>
+
+    <!-- Department -->
+    <RmParty partyId="CS_DEPT" partyTypeId="DEPARTMENT"/>
+    <RmPartyGroup partyId="CS_DEPT" groupName="CS Department"/>
+    <RmContactMech contactMechId="CM2" contactMechTypeId="TELECOM_NUMBER" infoString="+91-11-2659-1000"/>
+    <RmPartyContactMech partyId="CS_DEPT" contactMechId="CM2" fromDate="2024-01-01 00:00:00.000"/>
+
+    <!-- Teacher -->
+    <RmParty partyId="TCH1" partyTypeId="TEACHING_STAFF"/>
+    <RmPerson partyId="TCH1" firstName="Ramesh" lastName="Kumar"/>
+    <RmContactMech contactMechId="CM3" contactMechTypeId="EMAIL_ADDRESS" infoString="ramesh.kumar@cs.iitd.ac.in"/>
+    <RmPartyContactMech partyId="TCH1" contactMechId="CM3" fromDate="2024-01-01 00:00:00.000"/>
+
+    <!-- Student -->
+    <RmParty partyId="STD1" partyTypeId="STUDENT"/>
+    <RmPerson partyId="STD1" firstName="Amit" lastName="Sharma"/>
+    <RmContactMech contactMechId="CM4" contactMechTypeId="EMAIL_ADDRESS" infoString="amit.sharma@students.iitd.ac.in"/>
+    <RmPartyContactMech partyId="STD1" contactMechId="CM4" fromDate="2024-01-01 00:00:00.000"/>
+</entity-engine-xml>

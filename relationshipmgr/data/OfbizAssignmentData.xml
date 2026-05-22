@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <!-- ========================================================= -->
+    <!-- PART 1: PARTY DATA MODEL -->
+    <!-- ========================================================= -->
+    
+    <!-- Security Groups -->
+    <SecurityGroup groupId="PARTYMGRADMIN" groupName="Party Manager Admin"/>
+    <SecurityGroup groupId="ORDERMGRADMIN" groupName="Order Manager Admin"/>
+
+    <!-- Activity 1: Mark Tailor -->
+    <Party partyId="MARK_TAILOR" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+    <Person partyId="MARK_TAILOR" firstName="Mark" middleName="K" lastName="Tailor"/>
+    <PartyRole partyId="MARK_TAILOR" roleTypeId="CUSTOMER"/>
+    <PartyRole partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+    
+    <!-- Contact Details for Mark Tailor -->
+    <ContactMech contactMechId="MT_EMAIL" contactMechTypeId="EMAIL_ADDRESS" infoString="mark.tailor@hotwaxmedia.com"/>
+    <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_EMAIL" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <ContactMech contactMechId="MT_PHONE" contactMechTypeId="TELECOM_NUMBER"/>
+    <TelecomNumber contactMechId="MT_PHONE" contactNumber="8777364080"/>
+    <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_PHONE" fromDate="2024-01-01 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_PHONE" contactMechPurposeTypeId="PHONE_SHIPPING" fromDate="2024-01-01 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_PHONE" contactMechPurposeTypeId="PHONE_BILLING" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <ContactMech contactMechId="MT_ADDR" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="MT_ADDR" toName="Mark Tailor" address1="136 S MAIN ST #A200" city="Salt Lake City" postalCode="84101" stateProvinceGeoId="UT" countryGeoId="USA"/>
+    <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_ADDR" fromDate="2024-01-01 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_ADDR" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2024-01-01 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_ADDR" contactMechPurposeTypeId="GENERAL_LOCATION" fromDate="2024-01-01 00:00:00.0"/>
+
+    <!-- Activity 2: John Liston -->
+    <Party partyId="JOHN_LISTON" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+    <Person partyId="JOHN_LISTON" firstName="John" middleName="D" lastName="Liston"/>
+    <PartyRole partyId="JOHN_LISTON" roleTypeId="CUSTOMER"/>
+    
+    <!-- Activity 3: John Hays with UserLogin -->
+    <Party partyId="JOHN_HAYS" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+    <Person partyId="JOHN_HAYS" firstName="John" middleName="B" lastName="Hays"/>
+    <PartyRole partyId="JOHN_HAYS" roleTypeId="CUSTOMER"/>
+    <UserLogin userLoginId="jhays" partyId="JOHN_HAYS" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/> <!-- Password: ofbiz -->
+    <UserLoginSecurityGroup userLoginId="jhays" groupId="PARTYMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <!-- Activity 4: David Zeneski with multiple Logins -->
+    <Party partyId="DAVID_ZENESKI" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+    <Person partyId="DAVID_ZENESKI" firstName="David" middleName="R" lastName="Zeneski"/>
+    <PartyRole partyId="DAVID_ZENESKI" roleTypeId="CUSTOMER"/>
+    <UserLogin userLoginId="dzeneski1" partyId="DAVID_ZENESKI" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/>
+    <UserLoginSecurityGroup userLoginId="dzeneski1" groupId="ORDERMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+    <UserLogin userLoginId="dzeneski2" partyId="DAVID_ZENESKI" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/>
+    <UserLoginSecurityGroup userLoginId="dzeneski2" groupId="PARTYMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- PART 2: COMPANY, PRODUCT STORE, CATALOG SETUP -->
+    <!-- ========================================================= -->
+    
+    <!-- Company Info -->
+    <Party partyId="COMPANY" partyTypeId="PARTY_GROUP" statusId="PARTY_ENABLED"/>
+    <PartyGroup partyId="COMPANY" groupName="Default Company" logoImageUrl="/resources/uploads/images/company_logo.png"/>
+    <PartyRole partyId="COMPANY" roleTypeId="BILL_FROM_VENDOR"/>
+    <PartyRole partyId="COMPANY" roleTypeId="SHIP_FROM_VENDOR"/>
+    <PartyRole partyId="COMPANY" roleTypeId="BILL_TO_CUSTOMER"/>
+    <PartyRole partyId="COMPANY" roleTypeId="INTERNAL_ORGANIZATIO"/>
+    <PartyRole partyId="COMPANY" roleTypeId="SUPPLIER_AGENT"/>
+    <PartyRole partyId="COMPANY" roleTypeId="SUPPLIER"/>
+    <PartyRole partyId="COMPANY" roleTypeId="VENDOR"/>
+
+    <!-- Product Store Group & Store -->
+    <ProductStoreGroup productStoreGroupId="STORE_GROUP" productStoreGroupName="Company Store Group" description="Company Store Group"/>
+    <ProductStore productStoreId="STORE" storeName="Demo Store" companyName="Company" payToPartyId="COMPANY" primaryStoreGroupId="STORE_GROUP" reserveInventory="N" defaultLocaleString="en_US" defaultCurrencyUomId="USD" salesMethodChannelEnumId="WEB_SALES_CHANNEL"/>
+    
+    <!-- ========================================================= -->
+    <!-- PART 3: CATALOG SETUP AND MANAGEMENT -->
+    <!-- ========================================================= -->
+    
+    <ProdCatalog prodCatalogId="SHOES_CATALOG" catalogName="Shoes Catalog"/>
+    
+    <!-- Categories -->
+    <ProductCategory productCategoryId="SHOES_ROOT" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Browse Root"/>
+    <ProductCategory productCategoryId="SHOES_MEN" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Men"/>
+    <ProductCategory productCategoryId="SHOES_MSPORTS" productCategoryTypeId="CATALOG_CATEGORY" categoryName="MSports"/>
+    <ProductCategory productCategoryId="SHOES_MFORMAL" productCategoryTypeId="CATALOG_CATEGORY" categoryName="MFormal"/>
+    
+    <!-- Link Root to Catalog -->
+    <ProdCatalogCategory prodCatalogId="SHOES_CATALOG" productCategoryId="SHOES_ROOT" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <!-- Rollups -->
+    <ProductCategoryRollup productCategoryId="SHOES_MEN" parentProductCategoryId="SHOES_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+    <ProductCategoryRollup productCategoryId="SHOES_MSPORTS" parentProductCategoryId="SHOES_MEN" fromDate="2024-01-01 00:00:00.0"/>
+    <ProductCategoryRollup productCategoryId="SHOES_MFORMAL" parentProductCategoryId="SHOES_MEN" fromDate="2024-01-01 00:00:00.0"/>
+
+    <!-- Features -->
+    <ProductFeature productFeatureId="SIZE_7" productFeatureTypeId="SIZE" description="7"/>
+    <ProductFeature productFeatureId="COLOR_WHITE" productFeatureTypeId="COLOR" description="White"/>
+
+    <!-- Products (Virtual & Variants) -->
+    <Product productId="MS-1" productTypeId="VIRTUAL_GOOD" internalName="MSports 1" isVirtual="Y" isVariant="N"/>
+    <ProductCategoryMember productId="MS-1" productCategoryId="SHOES_MSPORTS" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <!-- Variant: MS-1 White Size 7 -->
+    <Product productId="MS-1-W7" productTypeId="FINISHED_GOOD" internalName="MSports 1 White Size 7" isVirtual="N" isVariant="Y"/>
+    <ProductAssoc productId="MS-1" productIdTo="MS-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+    
+    <!-- Promotions -->
+    <ProductPromo productPromoId="PROMO_SHOES" promoName="Shoes Promotion" userEntered="Y"/>
+    <ProductPromoRule productPromoId="PROMO_SHOES" productPromoRuleId="01" ruleName="Promo for MS-1"/>
+    
+    <!-- ========================================================= -->
+    <!-- PART 4: ORDER PROCESSING -->
+    <!-- ========================================================= -->
+    
+    <!-- Activity 1: Order HWMDEMO1000 (Created) -->
+    <OrderHeader orderId="HWMDEMO1000" orderTypeId="SALES_ORDER" statusId="ORDER_CREATED" orderDate="2024-01-01 00:00:00.0" productStoreId="STORE" salesChannelEnumId="WEB_SALES_CHANNEL" currencyUom="USD"/>
+    <OrderItem orderId="HWMDEMO1000" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM" productId="MS-1-W7" quantity="1" unitPrice="50.0" statusId="ITEM_CREATED"/>
+    <OrderRole orderId="HWMDEMO1000" partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+    <OrderContactMech orderId="HWMDEMO1000" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="MT_ADDR"/>
+    
+    <!-- Activity 2: Order HWMDEMO1001 (Approved) -->
+    <OrderHeader orderId="HWMDEMO1001" orderTypeId="SALES_ORDER" statusId="ORDER_APPROVED" orderDate="2024-01-01 00:00:00.0" productStoreId="STORE" salesChannelEnumId="WEB_SALES_CHANNEL" currencyUom="USD"/>
+    <OrderItem orderId="HWMDEMO1001" orderItemSeqId="00001" orderItemTypeId="PRODUCT_ORDER_ITEM" productId="MS-1-W7" quantity="1" unitPrice="50.0" statusId="ITEM_APPROVED"/>
+    <OrderRole orderId="HWMDEMO1001" partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+    <OrderContactMech orderId="HWMDEMO1001" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="MT_ADDR"/>
+
+</entity-engine-xml>

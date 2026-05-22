@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+  <!-- PART 1 -->
+  <SecurityGroup groupId="PARTYMGRADMIN" groupName="Party Manager Admin"/>
+  <SecurityGroup groupId="ORDERMGRADMIN" groupName="Order Manager Admin"/>
+  <Party partyId="MARK_TAILOR" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+  <Person partyId="MARK_TAILOR" firstName="Mark" middleName="K" lastName="Tailor"/>
+  <PartyRole partyId="MARK_TAILOR" roleTypeId="CUSTOMER"/>
+  <PartyRole partyId="MARK_TAILOR" roleTypeId="PLACING_CUSTOMER"/>
+  <ContactMech contactMechId="MT_EMAIL" contactMechTypeId="EMAIL_ADDRESS" infoString="mark.tailor@hotwaxmedia.com"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_EMAIL" fromDate="2024-01-01 00:00:00.0"/>
+  <ContactMech contactMechId="MT_PHONE" contactMechTypeId="TELECOM_NUMBER"/>
+  <TelecomNumber contactMechId="MT_PHONE" contactNumber="8777364080"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_PHONE" fromDate="2024-01-01 00:00:00.0"/>
+  <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_PHONE" contactMechPurposeTypeId="PHONE_SHIPPING" fromDate="2024-01-01 00:00:00.0"/>
+  <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_PHONE" contactMechPurposeTypeId="PHONE_BILLING" fromDate="2024-01-01 00:00:00.0"/>
+  <ContactMech contactMechId="MT_ADDR" contactMechTypeId="POSTAL_ADDRESS"/>
+  <PostalAddress contactMechId="MT_ADDR" toName="HotWax Media Inc." address1="136 S MAIN ST #A200" city="Salt Lake City" postalCode="84101" stateProvinceGeoId="UT" countryGeoId="USA"/>
+  <PartyContactMech partyId="MARK_TAILOR" contactMechId="MT_ADDR" fromDate="2024-01-01 00:00:00.0"/>
+  <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_ADDR" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2024-01-01 00:00:00.0"/>
+  <PartyContactMechPurpose partyId="MARK_TAILOR" contactMechId="MT_ADDR" contactMechPurposeTypeId="BILLING_LOCATION" fromDate="2024-01-01 00:00:00.0"/>
+  <ContactMech contactMechId="MT_ADDR2" contactMechTypeId="POSTAL_ADDRESS"/>
+  <PostalAddress contactMechId="MT_ADDR2" toName="HotWax Media Inc." address1="307 W 200 S" address2="Suite 4003" city="Salt Lake City" postalCode="84101" stateProvinceGeoId="UT" countryGeoId="USA"/>
+  <ContactMech contactMechId="MT_PHONE2" contactMechTypeId="TELECOM_NUMBER"/>
+  <TelecomNumber contactMechId="MT_PHONE2" contactNumber="8884052667"/>
+  <Party partyId="JOHN_LISTON" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+  <Person partyId="JOHN_LISTON" firstName="John" middleName="D" lastName="Liston"/>
+  <PartyRole partyId="JOHN_LISTON" roleTypeId="CUSTOMER"/>
+  <Party partyId="JOHN_HAYS" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+  <Person partyId="JOHN_HAYS" firstName="John" middleName="B" lastName="Hays"/>
+  <PartyRole partyId="JOHN_HAYS" roleTypeId="CUSTOMER"/>
+  <UserLogin userLoginId="jhays" partyId="JOHN_HAYS" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/>
+  <UserLoginSecurityGroup userLoginId="jhays" groupId="PARTYMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+  <Party partyId="DAVID_ZENESKI" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+  <Person partyId="DAVID_ZENESKI" firstName="David" middleName="R" lastName="Zeneski"/>
+  <PartyRole partyId="DAVID_ZENESKI" roleTypeId="CUSTOMER"/>
+  <UserLogin userLoginId="dzeneski1" partyId="DAVID_ZENESKI" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/>
+  <UserLoginSecurityGroup userLoginId="dzeneski1" groupId="ORDERMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+  <UserLogin userLoginId="dzeneski2" partyId="DAVID_ZENESKI" currentPassword="{SHA}47b56994cbc2b6d10aa1be30f70165adb305a41a"/>
+  <UserLoginSecurityGroup userLoginId="dzeneski2" groupId="PARTYMGRADMIN" fromDate="2024-01-01 00:00:00.0"/>
+</entity-engine-xml>

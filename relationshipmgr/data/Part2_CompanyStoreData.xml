@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+  <!-- PART 2: COMPANY, STORE GROUP, PRODUCT STORE -->
+  <Party partyId="COMPANY" partyTypeId="PARTY_GROUP" statusId="PARTY_ENABLED"/>
+  <PartyGroup partyId="COMPANY" groupName="Default Company" logoImageUrl="/resources/uploads/images/company_logo.png"/>
+  <PartyRole partyId="COMPANY" roleTypeId="BILL_FROM_VENDOR"/>
+  <PartyRole partyId="COMPANY" roleTypeId="SHIP_FROM_VENDOR"/>
+  <PartyRole partyId="COMPANY" roleTypeId="BILL_TO_CUSTOMER"/>
+  <PartyRole partyId="COMPANY" roleTypeId="INTERNAL_ORGANIZATIO"/>
+  <PartyRole partyId="COMPANY" roleTypeId="SUPPLIER_AGENT"/>
+  <PartyRole partyId="COMPANY" roleTypeId="SUPPLIER"/>
+  <PartyRole partyId="COMPANY" roleTypeId="VENDOR"/>
+  <ProductStoreGroup productStoreGroupId="STORE_GROUP" productStoreGroupName="Company Store Group" description="Company Store Group"/>
+  <ProductStore productStoreId="STORE" storeName="Demo Store" companyName="Company" payToPartyId="COMPANY"
+    primaryStoreGroupId="STORE_GROUP" reserveInventory="N" defaultLocaleString="en_US"
+    defaultCurrencyUomId="USD" salesChannelEnumId="WEB_SALES_CHANNEL"
+    orderNumberPrefix="HWMDEMO" autoApproveOrder="Y" autoApproveInvoice="Y"/>
+  <ProductStoreGroupMember productStoreGroupId="STORE_GROUP" productStoreId="STORE" fromDate="2024-01-01 00:00:00.0"/>
+</entity-engine-xml>

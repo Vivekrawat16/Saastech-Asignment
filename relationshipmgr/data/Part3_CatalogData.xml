@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+  <!-- PART 3: CATALOG, CATEGORIES, FEATURES, PRODUCTS, PROMOTIONS -->
+  <!-- Catalog -->
+  <ProdCatalog prodCatalogId="SHOES_CATALOG" catalogName="Shoes Catalog"/>
+  <ProdCatalogRole prodCatalogId="SHOES_CATALOG" partyId="COMPANY" roleTypeId="INTERNAL_ORGANIZATIO" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- Categories -->
+  <ProductCategory productCategoryId="SHOES_ROOT" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Browse Root"/>
+  <ProductCategory productCategoryId="SHOES_MEN" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Men"/>
+  <ProductCategory productCategoryId="SHOES_MSPORTS" productCategoryTypeId="CATALOG_CATEGORY" categoryName="MSports"/>
+  <ProductCategory productCategoryId="SHOES_MFORMAL" productCategoryTypeId="CATALOG_CATEGORY" categoryName="MFormal"/>
+  <ProductCategory productCategoryId="SHOES_MPARTY" productCategoryTypeId="CATALOG_CATEGORY" categoryName="MParty"/>
+  <ProductCategory productCategoryId="SHOES_WOMEN" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Women"/>
+  <ProductCategory productCategoryId="SHOES_WSPORTS" productCategoryTypeId="CATALOG_CATEGORY" categoryName="WSports"/>
+  <ProductCategory productCategoryId="SHOES_WFORMAL" productCategoryTypeId="CATALOG_CATEGORY" categoryName="WFormal"/>
+  <ProductCategory productCategoryId="SHOES_WPARTY" productCategoryTypeId="CATALOG_CATEGORY" categoryName="WParty"/>
+  <ProductCategory productCategoryId="SHOES_CHILDREN" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Children"/>
+  <ProductCategory productCategoryId="SHOES_PROMO" productCategoryTypeId="CATALOG_CATEGORY" categoryName="Promotion"/>
+
+  <!-- Catalog Root Link -->
+  <ProdCatalogCategory prodCatalogId="SHOES_CATALOG" productCategoryId="SHOES_ROOT" prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- Category Hierarchy -->
+  <ProductCategoryRollup productCategoryId="SHOES_MEN" parentProductCategoryId="SHOES_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_MSPORTS" parentProductCategoryId="SHOES_MEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_MFORMAL" parentProductCategoryId="SHOES_MEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_MPARTY" parentProductCategoryId="SHOES_MEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_WOMEN" parentProductCategoryId="SHOES_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_WSPORTS" parentProductCategoryId="SHOES_WOMEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_WFORMAL" parentProductCategoryId="SHOES_WOMEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_WPARTY" parentProductCategoryId="SHOES_WOMEN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_CHILDREN" parentProductCategoryId="SHOES_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryRollup productCategoryId="SHOES_PROMO" parentProductCategoryId="SHOES_ROOT" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- Features: Sizes -->
+  <ProductFeatureType productFeatureTypeId="SIZE" description="Size"/>
+  <ProductFeatureType productFeatureTypeId="COLOR" description="Color"/>
+  <ProductFeature productFeatureId="SIZE_7" productFeatureTypeId="SIZE" description="7"/>
+  <ProductFeature productFeatureId="SIZE_8" productFeatureTypeId="SIZE" description="8"/>
+  <ProductFeature productFeatureId="SIZE_9" productFeatureTypeId="SIZE" description="9"/>
+  <ProductFeature productFeatureId="SIZE_10" productFeatureTypeId="SIZE" description="10"/>
+  <ProductFeature productFeatureId="SIZE_11" productFeatureTypeId="SIZE" description="11"/>
+  <ProductFeature productFeatureId="SIZE_2" productFeatureTypeId="SIZE" description="2"/>
+  <ProductFeature productFeatureId="SIZE_3" productFeatureTypeId="SIZE" description="3"/>
+  <ProductFeature productFeatureId="SIZE_4" productFeatureTypeId="SIZE" description="4"/>
+  <ProductFeature productFeatureId="SIZE_5" productFeatureTypeId="SIZE" description="5"/>
+  <ProductFeature productFeatureId="COLOR_RED" productFeatureTypeId="COLOR" description="Red"/>
+  <ProductFeature productFeatureId="COLOR_BLACK" productFeatureTypeId="COLOR" description="Black"/>
+  <ProductFeature productFeatureId="COLOR_WHITE" productFeatureTypeId="COLOR" description="White"/>
+  <ProductFeature productFeatureId="COLOR_BROWN" productFeatureTypeId="COLOR" description="Brown"/>
+
+  <!-- Virtual Products -->
+  <Product productId="MS-1" productTypeId="VIRTUAL_GOOD" internalName="MSports 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MS-1" productCategoryId="SHOES_MSPORTS" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-2" productTypeId="VIRTUAL_GOOD" internalName="MSports 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MS-2" productCategoryId="SHOES_MSPORTS" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-1" productTypeId="VIRTUAL_GOOD" internalName="MFormal 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MF-1" productCategoryId="SHOES_MFORMAL" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2" productTypeId="VIRTUAL_GOOD" internalName="MFormal 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MF-2" productCategoryId="SHOES_MFORMAL" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1" productTypeId="VIRTUAL_GOOD" internalName="MParty 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MP-1" productCategoryId="SHOES_MPARTY" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2" productTypeId="VIRTUAL_GOOD" internalName="MParty 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="MP-2" productCategoryId="SHOES_MPARTY" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2" productFeatureId="SIZE_10" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1" productTypeId="VIRTUAL_GOOD" internalName="WSports 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WS-1" productCategoryId="SHOES_WSPORTS" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-2" productTypeId="VIRTUAL_GOOD" internalName="WSports 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WS-2" productCategoryId="SHOES_WSPORTS" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1" productTypeId="VIRTUAL_GOOD" internalName="WFormal 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WF-1" productCategoryId="SHOES_WFORMAL" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2" productTypeId="VIRTUAL_GOOD" internalName="WFormal 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WF-2" productCategoryId="SHOES_WFORMAL" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2" productFeatureId="SIZE_9" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-1" productTypeId="VIRTUAL_GOOD" internalName="WParty 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WP-1" productCategoryId="SHOES_WPARTY" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-2" productTypeId="VIRTUAL_GOOD" internalName="WParty 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="WP-2" productCategoryId="SHOES_WPARTY" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2" productFeatureId="SIZE_7" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2" productFeatureId="SIZE_8" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1" productTypeId="VIRTUAL_GOOD" internalName="Children 1" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="C-1" productCategoryId="SHOES_CHILDREN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="SIZE_2" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="SIZE_3" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="SIZE_4" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1" productFeatureId="SIZE_5" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2" productTypeId="VIRTUAL_GOOD" internalName="Children 2" isVirtual="Y" isVariant="N"/>
+  <ProductCategoryMember productId="C-2" productCategoryId="SHOES_CHILDREN" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2" productFeatureId="COLOR_RED" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2" productFeatureId="SIZE_2" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2" productFeatureId="SIZE_3" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2" productFeatureId="SIZE_5" productFeatureApplTypeId="SELECTABLE_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- Variant Products -->
+  <Product productId="MS-1-W7" productTypeId="FINISHED_GOOD" internalName="MSports 1 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-W8" productTypeId="FINISHED_GOOD" internalName="MSports 1 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-W9" productTypeId="FINISHED_GOOD" internalName="MSports 1 White Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-W9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W9" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-W10" productTypeId="FINISHED_GOOD" internalName="MSports 1 White Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-W10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W10" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-W10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-B7" productTypeId="FINISHED_GOOD" internalName="MSports 1 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-B8" productTypeId="FINISHED_GOOD" internalName="MSports 1 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-B9" productTypeId="FINISHED_GOOD" internalName="MSports 1 Brown Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B9" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-1-B10" productTypeId="FINISHED_GOOD" internalName="MSports 1 Brown Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-1" productIdTo="MS-1-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B10" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-1-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-2-R7" productTypeId="FINISHED_GOOD" internalName="MSports 2 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-2" productIdTo="MS-2-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-2-R10" productTypeId="FINISHED_GOOD" internalName="MSports 2 Red Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-2" productIdTo="MS-2-R10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-R10" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-R10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-2-B7" productTypeId="FINISHED_GOOD" internalName="MSports 2 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-2" productIdTo="MS-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MS-2-B10" productTypeId="FINISHED_GOOD" internalName="MSports 2 Black Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MS-2" productIdTo="MS-2-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-B10" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MS-2-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-1-R7" productTypeId="FINISHED_GOOD" internalName="MFormal 1 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-1" productIdTo="MF-1-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-1-R10" productTypeId="FINISHED_GOOD" internalName="MFormal 1 Red Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-1" productIdTo="MF-1-R10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-R10" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-R10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-1-B7" productTypeId="FINISHED_GOOD" internalName="MFormal 1 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-1" productIdTo="MF-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-1-B10" productTypeId="FINISHED_GOOD" internalName="MFormal 1 Black Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-1" productIdTo="MF-1-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-B10" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-1-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-W7" productTypeId="FINISHED_GOOD" internalName="MFormal 2 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-W8" productTypeId="FINISHED_GOOD" internalName="MFormal 2 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-W9" productTypeId="FINISHED_GOOD" internalName="MFormal 2 White Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-W9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W9" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-W10" productTypeId="FINISHED_GOOD" internalName="MFormal 2 White Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-W10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W10" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-W10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-B7" productTypeId="FINISHED_GOOD" internalName="MFormal 2 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-B8" productTypeId="FINISHED_GOOD" internalName="MFormal 2 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-B9" productTypeId="FINISHED_GOOD" internalName="MFormal 2 Brown Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B9" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MF-2-B10" productTypeId="FINISHED_GOOD" internalName="MFormal 2 Brown Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MF-2" productIdTo="MF-2-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B10" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MF-2-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-W7" productTypeId="FINISHED_GOOD" internalName="MParty 1 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-W8" productTypeId="FINISHED_GOOD" internalName="MParty 1 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-W9" productTypeId="FINISHED_GOOD" internalName="MParty 1 White Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-W9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W9" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-W10" productTypeId="FINISHED_GOOD" internalName="MParty 1 White Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-W10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W10" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-W10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-B7" productTypeId="FINISHED_GOOD" internalName="MParty 1 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-B8" productTypeId="FINISHED_GOOD" internalName="MParty 1 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-B9" productTypeId="FINISHED_GOOD" internalName="MParty 1 Brown Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B9" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-1-B10" productTypeId="FINISHED_GOOD" internalName="MParty 1 Brown Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-1" productIdTo="MP-1-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B10" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-1-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-R7" productTypeId="FINISHED_GOOD" internalName="MParty 2 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-R8" productTypeId="FINISHED_GOOD" internalName="MParty 2 Red Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-R8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R8" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-R9" productTypeId="FINISHED_GOOD" internalName="MParty 2 Red Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-R9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R9" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-R10" productTypeId="FINISHED_GOOD" internalName="MParty 2 Red Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-R10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R10" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-R10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-B7" productTypeId="FINISHED_GOOD" internalName="MParty 2 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-B8" productTypeId="FINISHED_GOOD" internalName="MParty 2 Black Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B8" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-B9" productTypeId="FINISHED_GOOD" internalName="MParty 2 Black Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B9" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="MP-2-B10" productTypeId="FINISHED_GOOD" internalName="MParty 2 Black Size 10" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="MP-2" productIdTo="MP-2-B10" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B10" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="MP-2-B10" productFeatureId="SIZE_10" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-W7" productTypeId="FINISHED_GOOD" internalName="WSports 1 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-W8" productTypeId="FINISHED_GOOD" internalName="WSports 1 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-W9" productTypeId="FINISHED_GOOD" internalName="WSports 1 White Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-W9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W9" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-W9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-B7" productTypeId="FINISHED_GOOD" internalName="WSports 1 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-B8" productTypeId="FINISHED_GOOD" internalName="WSports 1 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-1-B9" productTypeId="FINISHED_GOOD" internalName="WSports 1 Brown Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-1" productIdTo="WS-1-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B9" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-1-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-2-R7" productTypeId="FINISHED_GOOD" internalName="WSports 2 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-2" productIdTo="WS-2-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-2-R8" productTypeId="FINISHED_GOOD" internalName="WSports 2 Red Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-2" productIdTo="WS-2-R8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-R8" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-R8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-2-B7" productTypeId="FINISHED_GOOD" internalName="WSports 2 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-2" productIdTo="WS-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WS-2-B8" productTypeId="FINISHED_GOOD" internalName="WSports 2 Black Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WS-2" productIdTo="WS-2-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-B8" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WS-2-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-W7" productTypeId="FINISHED_GOOD" internalName="WFormal 1 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-W8" productTypeId="FINISHED_GOOD" internalName="WFormal 1 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-W9" productTypeId="FINISHED_GOOD" internalName="WFormal 1 White Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-W9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W9" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-W9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-B7" productTypeId="FINISHED_GOOD" internalName="WFormal 1 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-B8" productTypeId="FINISHED_GOOD" internalName="WFormal 1 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-1-B9" productTypeId="FINISHED_GOOD" internalName="WFormal 1 Brown Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-1" productIdTo="WF-1-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B9" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-1-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-R7" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-R8" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Red Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-R8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R8" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-R9" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Red Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-R9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R9" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-R9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-B7" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-B8" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Black Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B8" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WF-2-B9" productTypeId="FINISHED_GOOD" internalName="WFormal 2 Black Size 9" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WF-2" productIdTo="WF-2-B9" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B9" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WF-2-B9" productFeatureId="SIZE_9" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-1-W7" productTypeId="FINISHED_GOOD" internalName="WParty 1 White Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-1" productIdTo="WP-1-W7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-W7" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-W7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-1-W8" productTypeId="FINISHED_GOOD" internalName="WParty 1 White Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-1" productIdTo="WP-1-W8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-W8" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-W8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-1-B7" productTypeId="FINISHED_GOOD" internalName="WParty 1 Brown Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-1" productIdTo="WP-1-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-B7" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-1-B8" productTypeId="FINISHED_GOOD" internalName="WParty 1 Brown Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-1" productIdTo="WP-1-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-B8" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-1-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-2-R7" productTypeId="FINISHED_GOOD" internalName="WParty 2 Red Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-2" productIdTo="WP-2-R7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-R7" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-R7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-2-R8" productTypeId="FINISHED_GOOD" internalName="WParty 2 Red Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-2" productIdTo="WP-2-R8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-R8" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-R8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-2-B7" productTypeId="FINISHED_GOOD" internalName="WParty 2 Black Size 7" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-2" productIdTo="WP-2-B7" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-B7" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-B7" productFeatureId="SIZE_7" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="WP-2-B8" productTypeId="FINISHED_GOOD" internalName="WParty 2 Black Size 8" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="WP-2" productIdTo="WP-2-B8" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-B8" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="WP-2-B8" productFeatureId="SIZE_8" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-W2" productTypeId="FINISHED_GOOD" internalName="Children 1 White Size 2" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-W2" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W2" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W2" productFeatureId="SIZE_2" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-W3" productTypeId="FINISHED_GOOD" internalName="Children 1 White Size 3" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-W3" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W3" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W3" productFeatureId="SIZE_3" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-W4" productTypeId="FINISHED_GOOD" internalName="Children 1 White Size 4" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-W4" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W4" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W4" productFeatureId="SIZE_4" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-W5" productTypeId="FINISHED_GOOD" internalName="Children 1 White Size 5" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-W5" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W5" productFeatureId="COLOR_WHITE" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-W5" productFeatureId="SIZE_5" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-B2" productTypeId="FINISHED_GOOD" internalName="Children 1 Brown Size 2" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-B2" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B2" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B2" productFeatureId="SIZE_2" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-B3" productTypeId="FINISHED_GOOD" internalName="Children 1 Brown Size 3" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-B3" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B3" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B3" productFeatureId="SIZE_3" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-B4" productTypeId="FINISHED_GOOD" internalName="Children 1 Brown Size 4" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-B4" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B4" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B4" productFeatureId="SIZE_4" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-1-B5" productTypeId="FINISHED_GOOD" internalName="Children 1 Brown Size 5" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-1" productIdTo="C-1-B5" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B5" productFeatureId="COLOR_BROWN" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-1-B5" productFeatureId="SIZE_5" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-R2" productTypeId="FINISHED_GOOD" internalName="Children 2 Red Size 2" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-R2" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R2" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R2" productFeatureId="SIZE_2" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-R3" productTypeId="FINISHED_GOOD" internalName="Children 2 Red Size 3" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-R3" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R3" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R3" productFeatureId="SIZE_3" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-R5" productTypeId="FINISHED_GOOD" internalName="Children 2 Red Size 5" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-R5" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R5" productFeatureId="COLOR_RED" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-R5" productFeatureId="SIZE_5" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-B2" productTypeId="FINISHED_GOOD" internalName="Children 2 Black Size 2" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-B2" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B2" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B2" productFeatureId="SIZE_2" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-B3" productTypeId="FINISHED_GOOD" internalName="Children 2 Black Size 3" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-B3" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B3" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B3" productFeatureId="SIZE_3" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <Product productId="C-2-B5" productTypeId="FINISHED_GOOD" internalName="Children 2 Black Size 5" isVirtual="N" isVariant="Y"/>
+  <ProductAssoc productId="C-2" productIdTo="C-2-B5" productAssocTypeId="PRODUCT_VARIANT" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B5" productFeatureId="COLOR_BLACK" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductFeatureAppl productId="C-2-B5" productFeatureId="SIZE_5" productFeatureApplTypeId="STANDARD_FEATURE" fromDate="2024-01-01 00:00:00.0"/>
+
+  <!-- Promotion -->
+  <ProductPromo productPromoId="PROMO_SHOES" promoName="Shoes Promotion" userEntered="Y" showToCustomer="Y" requireCode="N" useLimitPerOrder="0" useLimitPerCustomer="0" useLimitPerPromo="0" createdDate="2024-01-01 00:00:00.0"/>
+  <ProductPromoRule productPromoId="PROMO_SHOES" productPromoRuleId="01" ruleName="White and Brown Promo"/>
+  <ProductStorePromoAppl productStoreId="STORE" productPromoId="PROMO_SHOES" fromDate="2024-01-01 00:00:00.0" sequenceNum="1"/>
+
+  <!-- Promo Category Membership -->
+  <ProductCategoryMember productId="MS-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="MF-2" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="MP-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="WS-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="WF-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="WP-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="C-1" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+  <ProductCategoryMember productId="C-2" productCategoryId="SHOES_PROMO" fromDate="2024-01-01 00:00:00.0"/>
+</entity-engine-xml>
