@@ -1,0 +1,168 @@
+<entity-engine-xml>
+
+    <!-- Product Catalog -->
+    <ProdCatalog prodCatalogId="FITNESS_WORLD"
+                 catalogName="FITNESS WORLD CATALOG"
+                 useQuickAdd="Y"/>
+
+    <!-- Categories -->
+    <ProductCategory productCategoryId="FITNESS_COLLECTION"
+                     productCategoryTypeId="CATALOG_CATEGORY"
+                     categoryName="Fitness Collection"/>
+
+    <ProductCategory productCategoryId="CARDIO_EQUIPMENT"
+                     productCategoryTypeId="CATALOG_CATEGORY"
+                     categoryName="Cardio Equipment"/>
+
+    <ProductCategory productCategoryId="STRENGTH_TRAINING"
+                     productCategoryTypeId="CATALOG_CATEGORY"
+                     categoryName="Strength Training"/>
+
+    <ProductCategory productCategoryId="FITNESS_ACCESSORIES"
+                     productCategoryTypeId="CATALOG_CATEGORY"
+                     categoryName="Fitness Accessories"/>
+
+    <!-- Category Hierarchy -->
+    <ProductCategoryRollup parentProductCategoryId="FITNESS_COLLECTION"
+                           productCategoryId="CARDIO_EQUIPMENT"
+                           fromDate="2024-01-01 00:00:00.0"/>
+
+    <ProductCategoryRollup parentProductCategoryId="FITNESS_COLLECTION"
+                           productCategoryId="STRENGTH_TRAINING"
+                           fromDate="2024-01-01 00:00:00.0"/>
+
+    <ProductCategoryRollup parentProductCategoryId="FITNESS_COLLECTION"
+                           productCategoryId="FITNESS_ACCESSORIES"
+                           fromDate="2024-01-01 00:00:00.0"/>
+
+    <!-- Root Category -->
+    <ProdCatalogCategory prodCatalogId="FITNESS_WORLD"
+                         productCategoryId="FITNESS_COLLECTION"
+                         fromDate="2024-01-01 00:00:00.0"
+                         sequenceNum="1"
+                         prodCatalogCategoryTypeId="PCCT_BROWSE_ROOT"/>
+
+    <!-- Products -->
+    <Product productId="TREADMILL_PRO"
+             productTypeId="FINISHED_GOOD"
+             internalName="Professional Treadmill"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <Product productId="EXERCISE_BIKE"
+             productTypeId="FINISHED_GOOD"
+             internalName="Magnetic Exercise Bike"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <Product productId="DUMBBELL_SET"
+             productTypeId="FINISHED_GOOD"
+             internalName="Adjustable Dumbbell Set"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <Product productId="POWER_RACK"
+             productTypeId="FINISHED_GOOD"
+             internalName="Heavy Duty Power Rack"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <Product productId="YOGA_MAT"
+             productTypeId="FINISHED_GOOD"
+             internalName="Premium Yoga Mat"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <Product productId="RESISTANCE_BANDS"
+             productTypeId="FINISHED_GOOD"
+             internalName="Resistance Bands Kit"
+             isVirtual="N"
+             isVariant="N"/>
+
+    <!-- Prices -->
+    <ProductPrice productId="TREADMILL_PRO"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="899.99"/>
+
+    <ProductPrice productId="EXERCISE_BIKE"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="499.99"/>
+
+    <ProductPrice productId="DUMBBELL_SET"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="149.99"/>
+
+    <ProductPrice productId="POWER_RACK"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="799.99"/>
+
+    <ProductPrice productId="YOGA_MAT"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="29.99"/>
+
+    <ProductPrice productId="RESISTANCE_BANDS"
+                  productPricePurposeId="PURCHASE"
+                  productPriceTypeId="DEFAULT_PRICE"
+                  currencyUomId="USD"
+                  productStoreGroupId="_NA_"
+                  fromDate="2024-01-01 00:00:00.0"
+                  price="24.99"/>
+
+    <!-- Product Category Membership -->
+    <ProductCategoryMember productCategoryId="CARDIO_EQUIPMENT"
+                           productId="TREADMILL_PRO"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="1"/>
+
+    <ProductCategoryMember productCategoryId="CARDIO_EQUIPMENT"
+                           productId="EXERCISE_BIKE"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="2"/>
+
+    <ProductCategoryMember productCategoryId="STRENGTH_TRAINING"
+                           productId="DUMBBELL_SET"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="1"/>
+
+    <ProductCategoryMember productCategoryId="STRENGTH_TRAINING"
+                           productId="POWER_RACK"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="2"/>
+
+    <ProductCategoryMember productCategoryId="FITNESS_ACCESSORIES"
+                           productId="YOGA_MAT"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="1"/>
+
+    <ProductCategoryMember productCategoryId="FITNESS_ACCESSORIES"
+                           productId="RESISTANCE_BANDS"
+                           fromDate="2024-01-01 00:00:00.0"
+                           sequenceNum="2"/>
+
+    <!-- Assign Catalog to Store -->
+    <ProductStoreCatalog productStoreId="9000"
+                         prodCatalogId="FITNESS_WORLD"
+                         fromDate="2024-01-01 00:00:00.0"
+                         sequenceNum="1"/>
+
+</entity-engine-xml>
