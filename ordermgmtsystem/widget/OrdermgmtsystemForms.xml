@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://ofbiz.apache.org/Widget-Form" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+    <!-- 1. Find Oms Orders Form -->
+    <form name="FindOmsOrders" type="single" target="FindOmsOrder" title="" default-map-name="parameters">
+        <field name="orderId" title="Order ID"><text-find/></field>
+        <field name="orderTypeId" title="Order Type">
+            <drop-down allow-empty="true">
+                <option key="SALES_ORDER" description="Sales Order"/>
+                <option key="PURCHASE_ORDER" description="Purchase Order"/>
+            </drop-down>
+        </field>
+        <field name="statusId" title="Status"><text-find/></field>
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="searchButton" title="Search" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 2. List Oms Orders Form -->
+    <form name="ListOmsOrders" type="list" list-name="listIt" paginate-target="FindOmsOrder"
+        default-entity-name="OmsOrderHeader" override-list-size="true">
+        <actions>
+            <service service-name="performFind" result-map="result">
+                <field-map field-name="entityName" value="OmsOrderHeader"/>
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="noConditionFind" value="Y"/>
+            </service>
+            <set field="listIt" from-field="result.listIt"/>
+        </actions>
+        <field name="orderId" title="Order ID" widget-style="buttontext">
+            <hyperlink description="${orderId}" target="OmsOrderDetail">
+                <parameter param-name="orderId"/>
+            </hyperlink>
+        </field>
+        <field name="orderTypeId" title="Order Type"><display/></field>
+        <field name="statusId" title="Status"><display/></field>
+        <field name="orderDate" title="Order Date"><display/></field>
+        <field name="deleteLink" title="Delete" widget-style="buttontext">
+            <hyperlink description="Delete" target="deleteOmsOrderHeader">
+                <parameter param-name="orderId"/>
+            </hyperlink>
+        </field>
+    </form>
+
+    <!-- 3. Create Oms Order Header Form -->
+    <form name="CreateOmsOrderHeader" type="single" target="createOmsOrderHeader" title="" default-map-name="orderHeader">
+        <field name="orderId" title="Order ID"><text size="20" maxlength="20"/></field>
+        <field name="orderTypeId" title="Order Type">
+            <drop-down>
+                <option key="SALES_ORDER" description="Sales Order"/>
+                <option key="PURCHASE_ORDER" description="Purchase Order"/>
+            </drop-down>
+        </field>
+        <field name="statusId" title="Status">
+            <drop-down>
+                <option key="CREATED" description="Created"/>
+                <option key="PARTIALLY_FULFILLED" description="Partially Fulfilled"/>
+                <option key="COMPLETED" description="Completed"/>
+            </drop-down>
+        </field>
+        <field name="orderDate" title="Order Date"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="submitButton" title="Create Order" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 4. Add Oms Order Part Form -->
+    <form name="AddOmsOrderPart" type="single" target="createOmsOrderPart">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID" required="true"><text size="10" default-value="00001"/></field>
+        <field name="customerPartyId" title="Customer Party ID">
+            <drop-down allow-empty="true">
+                <option key="PER123" description="John Doe (PER123)"/>
+                <option key="COMPANY" description="Company (COMPANY)"/>
+            </drop-down>
+        </field>
+        <field name="vendorPartyId" title="Vendor Party ID">
+            <drop-down allow-empty="true">
+                <option key="VEN456" description="ABC Organization (VEN456)"/>
+                <option key="COMPANY" description="Company (COMPANY)"/>
+            </drop-down>
+        </field>
+        <field name="postalContactMechId" title="Postal Contact Mech">
+            <drop-down allow-empty="true">
+                <option key="10003" description="123 Customer St (10003)"/>
+                <option key="10002" description="456 Vendor Ave (10002)"/>
+            </drop-down>
+        </field>
+        <field name="telecomContactMechId" title="Telecom Contact Mech">
+            <drop-down allow-empty="true">
+                <option key="10000" description="555-0199 (10000)"/>
+            </drop-down>
+        </field>
+        <field name="statusId" title="Status">
+            <drop-down>
+                <option key="CREATED" description="Created"/>
+                <option key="PART_PLACED" description="Part Placed"/>
+                <option key="COMPLETED" description="Completed"/>
+            </drop-down>
+        </field>
+        <field name="partTotal" title="Part Total"><text size="15" default-value="0.00"/></field>
+        <field name="submitButton" title="Add Part" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 5. Add Oms Order Item Form -->
+    <form name="AddOmsOrderItem" type="single" target="createOmsOrderItem">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID" required="true"><text size="10" default-value="00001"/></field>
+        <field name="orderItemSeqId" title="Item Seq ID" required="true"><text size="10"/></field>
+        <field name="productId" title="Product ID">
+            <drop-down>
+                <option key="PROD20001" description="Premium Laptop (PROD20001)"/>
+                <option key="PROD10002" description="Smart Tablet (PROD10002)"/>
+                <option key="SALES_TAX" description="Sales Tax (SALES_TAX)"/>
+            </drop-down>
+        </field>
+        <field name="quantity" title="Quantity" required="true"><text size="10" default-value="1"/></field>
+        <field name="unitPrice" title="Unit Price" required="true"><text size="15"/></field>
+        <field name="parentOrderItemSeqId" title="Parent Item Seq ID (optional)"><text size="10"/></field>
+        <field name="submitButton" title="Add Item" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 6. Add Oms Order Contact Mech Form -->
+    <form name="AddOmsOrderContactMech" type="single" target="createOmsOrderContactMech">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID" required="true"><text size="10" default-value="00001"/></field>
+        <field name="contactMechPurposeTypeId" title="Purpose Type">
+            <drop-down>
+                <option key="SHIPPING_LOCATION" description="Shipping Location"/>
+                <option key="PHONE_SHIPPING" description="Phone Shipping"/>
+                <option key="PHONE_WORK" description="Phone Work"/>
+            </drop-down>
+        </field>
+        <field name="contactMechId" title="Contact Mech ID">
+            <drop-down>
+                <option key="10003" description="123 Customer St (10003)"/>
+                <option key="10002" description="456 Vendor Ave (10002)"/>
+                <option key="10000" description="555-0199 (10000)"/>
+            </drop-down>
+        </field>
+        <field name="submitButton" title="Add Contact Mech" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 7. Add Oms Order Status Form -->
+    <form name="AddOmsOrderStatus" type="single" target="createOmsOrderStatus">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID (optional)"><text size="10"/></field>
+        <field name="statusId" title="Status ID">
+            <drop-down>
+                <option key="CREATED" description="Created"/>
+                <option key="PART_PLACED" description="Part Placed"/>
+                <option key="PARTIALLY_FULFILLED" description="Partially Fulfilled"/>
+                <option key="COMPLETED" description="Completed"/>
+                <option key="CANCELLED" description="Cancelled"/>
+            </drop-down>
+        </field>
+        <field name="statusDatetime" title="Status Datetime"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="submitButton" title="Add Status Log" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 8. Add Oms Order Adjustment Form -->
+    <form name="AddOmsOrderAdjustment" type="single" target="createOmsOrderAdjustment">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID" required="true"><text size="10" default-value="00001"/></field>
+        <field name="orderItemSeqId" title="Item Seq ID (optional)"><text size="10"/></field>
+        <field name="orderAdjustmentTypeId" title="Adjustment Type">
+            <drop-down>
+                <option key="SALES_TAX" description="Sales Tax"/>
+                <option key="DISCOUNT" description="Discount"/>
+                <option key="SHIPPING_CHARGES" description="Shipping Charges"/>
+            </drop-down>
+        </field>
+        <field name="amount" title="Amount" required="true"><text size="15"/></field>
+        <field name="description" title="Description"><text size="40"/></field>
+        <field name="submitButton" title="Add Adjustment" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 9. Add Oms Order Payment Form -->
+    <form name="AddOmsOrderPayment" type="single" target="createOmsOrderPayment">
+        <field name="orderId"><hidden/></field>
+        <field name="orderPartSeqId" title="Part Seq ID" required="true"><text size="10" default-value="00001"/></field>
+        <field name="paymentMethodTypeId" title="Payment Method Type">
+            <drop-down>
+                <option key="CREDIT_CARD" description="Credit Card"/>
+                <option key="COMPANY_ACCOUNT" description="Company Account"/>
+                <option key="CASH" description="Cash"/>
+            </drop-down>
+        </field>
+        <field name="amount" title="Amount" required="true"><text size="15"/></field>
+        <field name="statusId" title="Payment Status">
+            <drop-down>
+                <option key="PAYMENT_RECEIVED" description="Payment Received"/>
+                <option key="PAYMENT_AUTHORIZED" description="Payment Authorized"/>
+                <option key="PAYMENT_NOT_PAID" description="Not Paid"/>
+            </drop-down>
+        </field>
+        <field name="submitButton" title="Add Payment" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+</forms>

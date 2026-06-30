@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<entity-engine-xml>
+    <!-- ========================================================= -->
+    <!-- PARTIES & ROLES FOR DEMO DATA -->
+    <!-- ========================================================= -->
+    <!-- Customer Party: John Doe (PER123) -->
+    <Party partyId="PER123" partyTypeId="PERSON" statusId="PARTY_ENABLED"/>
+    <Person partyId="PER123" firstName="John" lastName="Doe"/>
+    <PartyRole partyId="PER123" roleTypeId="CUSTOMER"/>
+    <PartyRole partyId="PER123" roleTypeId="PLACING_CUSTOMER"/>
+
+    <!-- Vendor Party: ABC Organization (VEN456) -->
+    <Party partyId="VEN456" partyTypeId="PARTY_GROUP" statusId="PARTY_ENABLED"/>
+    <PartyGroup partyId="VEN456" groupName="ABC Organization"/>
+    <PartyRole partyId="VEN456" roleTypeId="VENDOR"/>
+    <PartyRole partyId="VEN456" roleTypeId="SHIP_FROM_VENDOR"/>
+    <PartyRole partyId="VEN456" roleTypeId="BILL_FROM_VENDOR"/>
+
+    <!-- ========================================================= -->
+    <!-- CONTACT MECHANISMS FOR DEMO DATA -->
+    <!-- ========================================================= -->
+    <!-- Contact Mech 10003: Postal Address for Customer PER123 -->
+    <ContactMech contactMechId="10003" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="10003" toName="John Doe" address1="123 Customer St" city="Salt Lake City" stateProvinceGeoId="UT" postalCode="84101" countryGeoId="USA"/>
+    <PartyContactMech partyId="PER123" contactMechId="10003" fromDate="2024-09-15 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="PER123" contactMechId="10003" contactMechPurposeTypeId="SHIPPING_LOCATION" fromDate="2024-09-15 00:00:00.0"/>
+
+    <!-- Contact Mech 10002: Postal Address for Vendor VEN456 -->
+    <ContactMech contactMechId="10002" contactMechTypeId="POSTAL_ADDRESS"/>
+    <PostalAddress contactMechId="10002" toName="ABC Organization" address1="456 Vendor Ave" city="New York" stateProvinceGeoId="NY" postalCode="10001" countryGeoId="USA"/>
+    <PartyContactMech partyId="VEN456" contactMechId="10002" fromDate="2024-09-15 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="VEN456" contactMechId="10002" contactMechPurposeTypeId="GENERAL_LOCATION" fromDate="2024-09-15 00:00:00.0"/>
+
+    <!-- Contact Mech 10000: Telecom Number for Vendor VEN456 -->
+    <ContactMech contactMechId="10000" contactMechTypeId="TELECOM_NUMBER"/>
+    <TelecomNumber contactMechId="10000" countryCode="1" areaCode="212" contactNumber="5550199"/>
+    <PartyContactMech partyId="VEN456" contactMechId="10000" fromDate="2024-09-15 00:00:00.0"/>
+    <PartyContactMechPurpose partyId="VEN456" contactMechId="10000" contactMechPurposeTypeId="PHONE_WORK" fromDate="2024-09-15 00:00:00.0"/>
+
+    <!-- ========================================================= -->
+    <!-- PRODUCTS FOR DEMO DATA -->
+    <!-- ========================================================= -->
+    <Product productId="PROD20001" productTypeId="FINISHED_GOOD" internalName="Premium Laptop"/>
+    <Product productId="PROD10002" productTypeId="FINISHED_GOOD" internalName="Smart Tablet"/>
+    <Product productId="SALES_TAX" productTypeId="SERVICE" internalName="Sales Tax Adjustment"/>
+
+    <!-- ========================================================= -->
+    <!-- OMS CUSTOM ORDER DATA -->
+    <!-- ========================================================= -->
+
+    <!-- Sales Order: ORD789 (Partially Fulfilled) -->
+    <OmsOrderHeader orderId="ORD789" orderTypeId="SALES_ORDER" statusId="PARTIALLY_FULFILLED" orderDate="2024-09-15 00:00:00.0"/>
+
+    <!-- Sales Order Parts -->
+    <!-- Part 1: Completed, Customer PER123, Address 10003, Total 1364.99 -->
+    <OmsOrderPart orderId="ORD789" orderPartSeqId="00001" customerPartyId="PER123" postalContactMechId="10003" statusId="COMPLETED" partTotal="1364.99"/>
+    <!-- Part 2: Created, Customer PER123, Address 10003, Total 1154.99 -->
+    <OmsOrderPart orderId="ORD789" orderPartSeqId="00002" customerPartyId="PER123" postalContactMechId="10003" statusId="CREATED" partTotal="1154.99"/>
+
+    <!-- Sales Order Items -->
+    <!-- Part 1 Items -->
+    <OmsOrderItem orderId="ORD789" orderPartSeqId="00001" orderItemSeqId="00001" productId="PROD20001" quantity="1" unitPrice="1299.99"/>
+    <OmsOrderItem orderId="ORD789" orderPartSeqId="00001" orderItemSeqId="00003" productId="SALES_TAX" quantity="1" unitPrice="65.00" parentOrderItemSeqId="00001"/>
+
+    <!-- Part 2 Items -->
+    <OmsOrderItem orderId="ORD789" orderPartSeqId="00002" orderItemSeqId="00002" productId="PROD10002" quantity="1" unitPrice="1099.99"/>
+    <OmsOrderItem orderId="ORD789" orderPartSeqId="00002" orderItemSeqId="00004" productId="SALES_TAX" quantity="1" unitPrice="55.00" parentOrderItemSeqId="00002"/>
+
+    <!-- Sales Order Contact Mechanisms -->
+    <OmsOrderContactMech orderId="ORD789" orderPartSeqId="00001" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="10003"/>
+    <OmsOrderContactMech orderId="ORD789" orderPartSeqId="00002" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="10003"/>
+
+    <!-- Sales Order Status Log -->
+    <OmsOrderStatus orderStatusId="STAT789_01" orderId="ORD789" statusId="CREATED" statusDatetime="2024-09-15 10:00:00.0"/>
+    <OmsOrderStatus orderStatusId="STAT789_02" orderId="ORD789" statusId="PARTIALLY_FULFILLED" statusDatetime="2024-09-19 14:30:00.0"/>
+    <OmsOrderStatus orderStatusId="STAT789_03" orderId="ORD789" orderPartSeqId="00001" statusId="COMPLETED" statusDatetime="2024-09-19 14:30:00.0"/>
+    <OmsOrderStatus orderStatusId="STAT789_04" orderId="ORD789" orderPartSeqId="00002" statusId="CREATED" statusDatetime="2024-09-19 14:30:00.0"/>
+
+    <!-- Sales Order Adjustments -->
+    <OmsOrderAdjustment orderAdjustmentId="ADJ789_01" orderId="ORD789" orderPartSeqId="00001" orderItemSeqId="00001" orderAdjustmentTypeId="SALES_TAX" amount="65.00" description="Sales Tax for Premium Laptop"/>
+    <OmsOrderAdjustment orderAdjustmentId="ADJ789_02" orderId="ORD789" orderPartSeqId="00002" orderItemSeqId="00002" orderAdjustmentTypeId="SALES_TAX" amount="55.00" description="Sales Tax for Smart Tablet"/>
+
+    <!-- Sales Order Payments -->
+    <OmsOrderPayment orderPaymentId="PAY789_01" orderId="ORD789" orderPartSeqId="00001" paymentMethodTypeId="CREDIT_CARD" amount="1364.99" statusId="PAYMENT_RECEIVED"/>
+    <OmsOrderPayment orderPaymentId="PAY789_02" orderId="ORD789" orderPartSeqId="00002" paymentMethodTypeId="CREDIT_CARD" amount="1154.99" statusId="PAYMENT_AUTHORIZED"/>
+
+
+    <!-- Purchase Order: ORD123 (Created) -->
+    <OmsOrderHeader orderId="ORD123" orderTypeId="PURCHASE_ORDER" statusId="CREATED" orderDate="2024-09-19 00:00:00.0"/>
+
+    <!-- Purchase Order Parts -->
+    <!-- Part 1: Placed/Created, Vendor VEN456, Address 10002, Phone 10000, Total 64999.50 -->
+    <OmsOrderPart orderId="ORD123" orderPartSeqId="00001" vendorPartyId="VEN456" postalContactMechId="10002" telecomContactMechId="10000" statusId="PART_PLACED" partTotal="64999.50"/>
+
+    <!-- Purchase Order Items -->
+    <OmsOrderItem orderId="ORD123" orderPartSeqId="00001" orderItemSeqId="00001" productId="PROD20001" quantity="50" unitPrice="1299.99"/>
+
+    <!-- Purchase Order Contact Mechanisms -->
+    <OmsOrderContactMech orderId="ORD123" orderPartSeqId="00001" contactMechPurposeTypeId="SHIPPING_LOCATION" contactMechId="10002"/>
+    <OmsOrderContactMech orderId="ORD123" orderPartSeqId="00001" contactMechPurposeTypeId="PHONE_WORK" contactMechId="10000"/>
+
+    <!-- Purchase Order Status Log -->
+    <OmsOrderStatus orderStatusId="STAT123_01" orderId="ORD123" statusId="CREATED" statusDatetime="2024-09-19 09:00:00.0"/>
+    <OmsOrderStatus orderStatusId="STAT123_02" orderId="ORD123" orderPartSeqId="00001" statusId="PART_PLACED" statusDatetime="2024-09-19 09:15:00.0"/>
+
+    <!-- Purchase Order Payments -->
+    <OmsOrderPayment orderPaymentId="PAY123_01" orderId="ORD123" orderPartSeqId="00001" paymentMethodTypeId="COMPANY_ACCOUNT" amount="64999.50" statusId="PAYMENT_NOT_PAID"/>
+
+</entity-engine-xml>

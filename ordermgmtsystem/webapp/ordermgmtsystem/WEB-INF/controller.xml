@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Site-Conf" xsi:schemaLocation="http://ofbiz.apache.org/Site-Conf http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>Ordermgmtsystem Component Site Configuration File</description>
+
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
+    <request-map uri="FindOmsOrder"><security https="true" auth="true"/><response name="success" type="view" value="FindOmsOrder"/></request-map>
+    <request-map uri="OmsOrderDetail"><security https="true" auth="true"/><response name="success" type="view" value="OmsOrderDetail"/></request-map>
+
+    <!-- Order Header CRUD -->
+    <request-map uri="createOmsOrderHeader">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderHeader"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+    <request-map uri="updateOmsOrderHeader">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateOmsOrderHeader"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderHeader">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderHeader"/>
+        <response name="success" type="request-redirect" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
+
+    <!-- Order Part CRUD -->
+    <request-map uri="createOmsOrderPart">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderPart"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="updateOmsOrderPart">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateOmsOrderPart"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderPart">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderPart"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- Order Item CRUD -->
+    <request-map uri="createOmsOrderItem">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderItem"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="updateOmsOrderItem">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateOmsOrderItem"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderItem">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderItem"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- Order Contact Mech CRUD -->
+    <request-map uri="createOmsOrderContactMech">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderContactMech"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderContactMech">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderContactMech"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- Order Status CRUD -->
+    <request-map uri="createOmsOrderStatus">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderStatus"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderStatus">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderStatus"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- Order Adjustment CRUD -->
+    <request-map uri="createOmsOrderAdjustment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderAdjustment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="updateOmsOrderAdjustment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateOmsOrderAdjustment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderAdjustment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderAdjustment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- Order Payment CRUD -->
+    <request-map uri="createOmsOrderPayment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="createOmsOrderPayment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="updateOmsOrderPayment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="updateOmsOrderPayment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+    <request-map uri="deleteOmsOrderPayment">
+        <security https="true" auth="true"/>
+        <event type="service" invoke="deleteOmsOrderPayment"/>
+        <response name="success" type="request-redirect" value="OmsOrderDetail">
+            <redirect-parameter name="orderId"/>
+        </response>
+        <response name="error" type="view" value="OmsOrderDetail"/>
+    </request-map>
+
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://ordermgmtsystem/widget/OrdermgmtsystemScreens.xml#main"/>
+    <view-map name="FindOmsOrder" type="screen" page="component://ordermgmtsystem/widget/OrdermgmtsystemScreens.xml#FindOmsOrder"/>
+    <view-map name="OmsOrderDetail" type="screen" page="component://ordermgmtsystem/widget/OrdermgmtsystemScreens.xml#OmsOrderDetail"/>
+</site-conf>
