@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ofbiz.apache.org/Widget-Screen" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Screen http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <!-- 1. PIM Dashboard Screen -->
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/>
+                <script location="component://productinformationmgr/groovyScripts/Dashboard.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="ProductinformationmgrCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <platform-specific>
+                            <html><html-template location="component://productinformationmgr/webapp/productinformationmgr/templates/Dashboard.ftl"/></html>
+                        </platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- 2. Find and Create Products Screen -->
+    <screen name="FindPimProduct">
+        <section>
+            <actions>
+                <set field="headerItem" value="FindPimProduct"/>
+                <set field="titleProperty" value="Manage Products"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="ProductinformationmgrCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <!-- Horizontal Grid for Admin Actions -->
+                        <container id="pim-admin-actions" style="grid-container">
+                            <screenlet id="CreateNewProduct" title="Create New Product" collapsible="true" initially-collapsed="true">
+                                <include-form name="CreatePimProduct" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                            </screenlet>
+                            <screenlet id="CreateNewCategory" title="Create New Category" collapsible="true" initially-collapsed="true">
+                                <include-form name="CreatePimProductCategory" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                            </screenlet>
+                            <screenlet id="CreateNewFeature" title="Create New Feature" collapsible="true" initially-collapsed="true">
+                                <include-form name="CreatePimProductFeature" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                            </screenlet>
+                        </container>
+
+                        <screenlet id="SearchProducts" title="Search Products">
+                            <include-form name="FindPimProducts" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                        </screenlet>
+                        <screenlet id="ProductsList" title="Products List">
+                            <include-form name="ListPimProducts" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- 3. Product Detail Management Screen -->
+    <screen name="PimProductDetail">
+        <section>
+            <actions>
+                <set field="headerItem" value="FindPimProduct"/>
+                <script location="component://productinformationmgr/groovyScripts/ProductDetail.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="ProductinformationmgrCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <!-- Custom FTL template showing product details & answering patterns -->
+                        <platform-specific>
+                            <html><html-template location="component://productinformationmgr/webapp/productinformationmgr/templates/ProductDetail.ftl"/></html>
+                        </platform-specific>
+                        
+                        <!-- Collapsible forms to manage/add child data -->
+                        <container id="pim-detail-forms" style="grid-container">
+                            <container style="grid-column">
+                                <screenlet id="AddProductContent" title="Add Media Content" collapsible="true">
+                                    <include-form name="AddPimProductContent" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                                <screenlet id="AddProductPrice" title="Add Price" collapsible="true">
+                                    <include-form name="AddPimProductPrice" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                                <screenlet id="AddProductDimension" title="Add Dimension" collapsible="true">
+                                    <include-form name="AddPimProductDimension" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                            </container>
+                            <container style="grid-column">
+                                <screenlet id="AddProductAssoc" title="Add Product Association" collapsible="true">
+                                    <include-form name="AddPimProductAssoc" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                                <screenlet id="AddProductCategoryMember" title="Assign Category" collapsible="true">
+                                    <include-form name="AddPimProductCategoryMember" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                                <screenlet id="AddProductFeatureAppl" title="Apply Feature" collapsible="true">
+                                    <include-form name="AddPimProductFeatureAppl" location="component://productinformationmgr/widget/ProductinformationmgrForms.xml"/>
+                                </screenlet>
+                            </container>
+                        </container>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>

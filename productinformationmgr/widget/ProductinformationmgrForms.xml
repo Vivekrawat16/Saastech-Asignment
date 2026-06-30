@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns="http://ofbiz.apache.org/Widget-Form" xsi:schemaLocation="http://ofbiz.apache.org/Widget-Form http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+    <!-- 1. Find Pim Products Form -->
+    <form name="FindPimProducts" type="single" target="FindPimProduct" title="" default-map-name="parameters">
+        <field name="productId" title="Product ID"><text-find/></field>
+        <field name="productName" title="Product Name"><text-find/></field>
+        <field name="productTypeEnumId" title="Product Type">
+            <drop-down allow-empty="true">
+                <option key="FINISHED_GOOD" description="Finished Good"/>
+                <option key="SERVICE" description="Service"/>
+            </drop-down>
+        </field>
+        <field name="isVirtual" title="Is Virtual">
+            <drop-down allow-empty="true">
+                <option key="Y" description="Yes"/>
+                <option key="N" description="No"/>
+            </drop-down>
+        </field>
+        <field name="isVariant" title="Is Variant">
+            <drop-down allow-empty="true">
+                <option key="Y" description="Yes"/>
+                <option key="N" description="No"/>
+            </drop-down>
+        </field>
+        <field name="noConditionFind"><hidden value="Y"/></field>
+        <field name="searchButton" title="Search" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 2. List Pim Products Form -->
+    <form name="ListPimProducts" type="list" list-name="listIt" paginate-target="FindPimProduct"
+        default-entity-name="PimProduct" override-list-size="true">
+        <actions>
+            <service service-name="performFind" result-map="result">
+                <field-map field-name="entityName" value="PimProduct"/>
+                <field-map field-name="inputFields" from-field="parameters"/>
+                <field-map field-name="noConditionFind" value="Y"/>
+            </service>
+            <set field="listIt" from-field="result.listIt"/>
+        </actions>
+        <field name="productId" title="Product ID" widget-style="buttontext">
+            <hyperlink description="${productId}" target="PimProductDetail">
+                <parameter param-name="productId"/>
+            </hyperlink>
+        </field>
+        <field name="productName" title="Product Name"><display/></field>
+        <field name="productTypeEnumId" title="Type"><display/></field>
+        <field name="isVirtual" title="Virtual"><display/></field>
+        <field name="isVariant" title="Variant"><display/></field>
+        <field name="fromDate" title="From Date"><display/></field>
+        <field name="deleteLink" title="Delete" widget-style="buttontext">
+            <hyperlink description="Delete" target="deletePimProduct">
+                <parameter param-name="productId"/>
+            </hyperlink>
+        </field>
+    </form>
+
+    <!-- 3. Create Pim Product Form -->
+    <form name="CreatePimProduct" type="single" target="createPimProduct" title="" default-map-name="product">
+        <field name="productId" title="Product ID" required="true"><text size="20" maxlength="20"/></field>
+        <field name="productName" title="Product Name" required="true"><text size="40"/></field>
+        <field name="productTypeEnumId" title="Product Type">
+            <drop-down>
+                <option key="FINISHED_GOOD" description="Finished Good"/>
+                <option key="SERVICE" description="Service"/>
+            </drop-down>
+        </field>
+        <field name="isVirtual" title="Is Virtual" required="true">
+            <drop-down>
+                <option key="N" description="No"/>
+                <option key="Y" description="Yes"/>
+            </drop-down>
+        </field>
+        <field name="isVariant" title="Is Variant" required="true">
+            <drop-down>
+                <option key="N" description="No"/>
+                <option key="Y" description="Yes"/>
+            </drop-down>
+        </field>
+        <field name="fromDate" title="From Date"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="submitButton" title="Create Product" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 4. Create Pim Product Category Form -->
+    <form name="CreatePimProductCategory" type="single" target="createPimProductCategory" title="" default-map-name="category">
+        <field name="productCategoryId" title="Category ID" required="true"><text size="20" maxlength="20"/></field>
+        <field name="productCategoryTypeId" title="Category Type">
+            <drop-down>
+                <option key="CATALOG_CATEGORY" description="Catalog Category"/>
+                <option key="INDUSTRY_CATEGORY" description="Industry Category"/>
+            </drop-down>
+        </field>
+        <field name="categoryName" title="Category Name" required="true"><text size="40"/></field>
+        <field name="submitButton" title="Create Category" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 5. Create Pim Product Feature Form -->
+    <form name="CreatePimProductFeature" type="single" target="createPimProductFeature" title="" default-map-name="feature">
+        <field name="productFeatureId" title="Feature ID" required="true"><text size="20" maxlength="20"/></field>
+        <field name="productFeatureTypeId" title="Feature Type">
+            <drop-down>
+                <option key="COLOR" description="Color"/>
+                <option key="SIZE" description="Size"/>
+                <option key="MEMORY" description="Memory"/>
+                <option key="DIMENSION" description="Dimension"/>
+            </drop-down>
+        </field>
+        <field name="description" title="Description" required="true"><text size="40"/></field>
+        <field name="submitButton" title="Create Feature" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 6. Add Pim Product Content Form -->
+    <form name="AddPimProductContent" type="single" target="createPimProductContent">
+        <field name="productId"><hidden/></field>
+        <field name="productContentId" title="Content ID" required="true"><text size="20"/></field>
+        <field name="productContentTypeEnumId" title="Content Type">
+            <drop-down>
+                <option key="IMAGE" description="Image"/>
+                <option key="DESCRIPTION" description="Description"/>
+                <option key="DOCUMENTATION" description="Documentation"/>
+            </drop-down>
+        </field>
+        <field name="contentLocation" title="Location / URL" required="true"><text size="40"/></field>
+        <field name="submitButton" title="Add Content" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 7. Add Pim Product Price Form -->
+    <form name="AddPimProductPrice" type="single" target="createPimProductPrice">
+        <field name="productId"><hidden/></field>
+        <field name="productPriceId" title="Price ID" required="true"><text size="20"/></field>
+        <field name="priceTypeEnumId" title="Price Type">
+            <drop-down>
+                <option key="LIST_PRICE" description="List Price"/>
+                <option key="PROMOTIONAL_PRICE" description="Promotional Price"/>
+                <option key="WHOLESALE_PRICE" description="Wholesale Price"/>
+            </drop-down>
+        </field>
+        <field name="price" title="Price" required="true"><text size="15"/></field>
+        <field name="submitButton" title="Add Price" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 8. Add Pim Product Dimension Form -->
+    <form name="AddPimProductDimension" type="single" target="createPimProductDimension">
+        <field name="productId"><hidden/></field>
+        <field name="dimensionTypeEnumId" title="Dimension Type">
+            <drop-down>
+                <option key="WEIGHT" description="Weight"/>
+                <option key="LENGTH" description="Length"/>
+                <option key="HEIGHT" description="Height"/>
+                <option key="WIDTH" description="Width"/>
+            </drop-down>
+        </field>
+        <field name="dimensionValue" title="Value" required="true"><text size="15"/></field>
+        <field name="valueUomId" title="Unit (UOM)">
+            <drop-down>
+                <option key="OUNCES" description="Ounces"/>
+                <option key="LBS" description="Pounds (Lbs)"/>
+                <option key="INCHES" description="Inches"/>
+                <option key="KG" description="Kilograms (Kg)"/>
+            </drop-down>
+        </field>
+        <field name="submitButton" title="Add Dimension" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 9. Add Pim Product Assoc Form -->
+    <form name="AddPimProductAssoc" type="single" target="createPimProductAssoc">
+        <field name="productId" title="From Product ID"><hidden/></field>
+        <field name="toProductId" title="To Product ID" required="true">
+            <drop-down>
+                <option key="PROD10001" description="Smartphone-128GB (PROD10001)"/>
+                <option key="PROD10002" description="Smartphone-256GB (PROD10002)"/>
+                <option key="PROD20001" description="Laptop-BLACK (PROD20001)"/>
+            </drop-down>
+        </field>
+        <field name="productAssocTypeEnumId" title="Assoc Type">
+            <drop-down>
+                <option key="VARIANT" description="Variant"/>
+                <option key="COMPONENT" description="Component"/>
+                <option key="ACCESSORY" description="Accessory"/>
+            </drop-down>
+        </field>
+        <field name="fromDate" title="From Date"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="submitButton" title="Add Association" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 10. Add Pim Product Category Member Form -->
+    <form name="AddPimProductCategoryMember" type="single" target="createPimProductCategoryMember">
+        <field name="productId"><hidden/></field>
+        <field name="productCategoryId" title="Category">
+            <drop-down>
+                <option key="FITNESS_COLLECTION" description="Fitness Collection"/>
+                <option key="CARDIO_EQUIPMENT" description="Cardio Equipment"/>
+                <option key="STRENGTH_TRAINING" description="Strength Training"/>
+                <option key="FITNESS_ACCESSORIES" description="Fitness Accessories"/>
+            </drop-down>
+        </field>
+        <field name="fromDate" title="From Date"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="sequenceNum" title="Sequence Num"><text size="5" default-value="1"/></field>
+        <field name="submitButton" title="Assign Category" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+    <!-- 11. Add Pim Product Feature Appl Form -->
+    <form name="AddPimProductFeatureAppl" type="single" target="createPimProductFeatureAppl">
+        <field name="productId"><hidden/></field>
+        <field name="productFeatureId" title="Feature">
+            <drop-down>
+                <option key="COLOR_BLACK" description="Black Color (COLOR_BLACK)"/>
+                <option key="COLOR_WHITE" description="White Color (COLOR_WHITE)"/>
+                <option key="MEMORY_128GB" description="128 GB Memory (MEMORY_128GB)"/>
+                <option key="MEMORY_256GB" description="256 GB Memory (MEMORY_256GB)"/>
+            </drop-down>
+        </field>
+        <field name="productFeatureApplTypeId" title="Application Type">
+            <drop-down>
+                <option key="STANDARD_FEATURE" description="Standard Feature"/>
+                <option key="REQUIRED_FEATURE" description="Required Feature"/>
+                <option key="OPTIONAL_FEATURE" description="Optional Feature"/>
+            </drop-down>
+        </field>
+        <field name="fromDate" title="From Date"><date-time type="timestamp" default-value="${nowTimestamp}"/></field>
+        <field name="submitButton" title="Apply Feature" widget-style="smallSubmit"><submit button-type="button"/></field>
+    </form>
+
+</forms>
